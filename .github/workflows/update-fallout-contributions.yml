@@ -1,4 +1,4 @@
-name: Update Retro Game Boy Contributions
+name: Update Fallout Style Contributions
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  update-gameboy:
+  update-contributions:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,15 +21,16 @@ jobs:
         with:
           node-version: 20
 
-      - name: Generate Game Boy SVG
+      - name: Generate Fallout style contribution SVG
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/build-gameboy.js
+          GITHUB_USERNAME: Alexispher
+        run: node scripts/build-fallout-contributions.js
 
       - name: Commit updated SVG
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add gameboy_template.svg
-          git diff --cached --quiet || git commit -m "Update retro Game Boy contributions"
+          git add fallout_contributions.svg
+          git diff --cached --quiet || git commit -m "Update Fallout style contributions"
           git push
