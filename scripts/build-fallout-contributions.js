@@ -1,6 +1,7 @@
 const fs = require("fs");
 
 const USERNAME = process.env.GITHUB_USERNAME || "Alexispher";
+const PROFILE_LABEL = process.env.PROFILE_LABEL || "Hcv11";
 const OUTPUT = "fallout_contributions.svg";
 
 const query = `
@@ -44,7 +45,7 @@ async function getContributionData() {
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
-      "User-Agent": "retro-contribution-panel",
+      "User-Agent": "fallout-contribution-screen",
     },
     body: JSON.stringify({
       query,
@@ -96,9 +97,7 @@ function buildMonthLabels(weeks, gridX, gridY, cell, gap) {
 
     if (month !== lastMonth) {
       labels += `
-        <text x="${gridX + index * (cell + gap)}" y="${gridY - 14}" class="month">
-          ${month}
-        </text>`;
+        <text x="${gridX + index * (cell + gap)}" y="${gridY - 11}" class="month">${month}</text>`;
       lastMonth = month;
     }
   });
@@ -112,15 +111,15 @@ function buildContributionGrid(calendar) {
   const max = Math.max(...allDays.map((day) => day.contributionCount), 1);
 
   const colors = [
-    "#07130a",
-    "#1d3b21",
-    "#2f6b35",
-    "#55a448",
+    "#061108",
+    "#17341b",
+    "#245f2a",
+    "#48a13e",
     "#b8ff6a",
   ];
 
-  const gridX = 96;
-  const gridY = 150;
+  const gridX = 58;
+  const gridY = 108;
   const cell = 8;
   const gap = 2.2;
 
@@ -138,10 +137,10 @@ function buildContributionGrid(calendar) {
           y="${y.toFixed(2)}"
           width="${cell}"
           height="${cell}"
-          rx="1.4"
+          rx="1.2"
           fill="${colors[level]}"
-          stroke="#9fe870"
-          stroke-opacity="${level === 0 ? "0.08" : "0.22"}"
+          stroke="#8fdc73"
+          stroke-opacity="${level === 0 ? "0.07" : "0.2"}"
         >
           <title>${day.date}: ${day.contributionCount} contribution(s)</title>
         </rect>`;
@@ -151,10 +150,10 @@ function buildContributionGrid(calendar) {
   return `
     ${buildMonthLabels(weeks, gridX, gridY, cell, gap)}
 
-    <text x="54" y="${gridY + 8}" class="day">SUN</text>
-    <text x="54" y="${gridY + 28.4}" class="day">TUE</text>
-    <text x="54" y="${gridY + 48.8}" class="day">THU</text>
-    <text x="54" y="${gridY + 69.2}" class="day">SAT</text>
+    <text x="20" y="${gridY + 7}" class="day">SUN</text>
+    <text x="20" y="${gridY + 27.4}" class="day">TUE</text>
+    <text x="20" y="${gridY + 47.8}" class="day">THU</text>
+    <text x="20" y="${gridY + 68.2}" class="day">SAT</text>
 
     <g>
       ${rects}
@@ -163,125 +162,121 @@ function buildContributionGrid(calendar) {
 
 function buildSvg(user) {
   const login = escapeXml(user.login);
+  const profile = escapeXml(PROFILE_LABEL);
   const calendar = user.contributionsCollection.contributionCalendar;
-  const total = calendar.totalContributions;
   const grid = buildContributionGrid(calendar);
-  const generatedAt = new Date().toISOString().slice(0, 10);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="850" height="340" viewBox="0 0 850 340" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="650" height="230" viewBox="0 0 650 230" role="img" aria-labelledby="title desc">
   <title id="title">${login} GitHub Contributions</title>
-  <desc id="desc">Retro terminal style GitHub contribution calendar.</desc>
+  <desc id="desc">Fallout-inspired retro GitHub contribution matrix.</desc>
 
   <defs>
-    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#38382b"/>
-      <stop offset="50%" stop-color="#1d2119"/>
-      <stop offset="100%" stop-color="#0b0d09"/>
-    </linearGradient>
-
     <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#07130a"/>
+      <stop offset="0%" stop-color="#071509"/>
       <stop offset="100%" stop-color="#020403"/>
     </linearGradient>
 
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#000000" flood-opacity="0.45"/>
-    </filter>
-
     <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-      <rect x="0" y="0" width="4" height="1" fill="#b8ff6a" opacity="0.035"/>
+      <rect x="0" y="0" width="4" height="1" fill="#9fe870" opacity="0.045"/>
+    </pattern>
+
+    <pattern id="noise" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="5" r="0.6" fill="#9fe870" opacity="0.06"/>
+      <circle cx="15" cy="11" r="0.5" fill="#d7c06a" opacity="0.04"/>
+      <circle cx="9" cy="19" r="0.4" fill="#9fe870" opacity="0.05"/>
     </pattern>
 
     <style>
-      .title {
+      .screen-title {
         font-family: Consolas, "Courier New", monospace;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 2px;
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 1.4px;
         fill: #d7c06a;
       }
 
       .label {
         font-family: Consolas, "Courier New", monospace;
-        font-size: 11px;
-        fill: #8fdc73;
-        letter-spacing: 1px;
-      }
-
-      .main {
-        font-family: Consolas, "Courier New", monospace;
-        font-size: 18px;
+        font-size: 9px;
         font-weight: 700;
-        fill: #b8ff6a;
-      }
-
-      .total {
-        font-family: Consolas, "Courier New", monospace;
-        font-size: 26px;
-        font-weight: 900;
-        fill: #b8ff6a;
+        letter-spacing: 1px;
+        fill: #8fdc73;
       }
 
       .month {
         font-family: Consolas, "Courier New", monospace;
-        font-size: 9px;
-        fill: #76b867;
+        font-size: 8px;
+        font-weight: 700;
+        fill: #7abd67;
       }
 
       .day {
         font-family: Consolas, "Courier New", monospace;
-        font-size: 8px;
-        fill: #5e9654;
-      }
-
-      .line {
-        stroke: #b8ff6a;
-        stroke-opacity: 0.22;
-        stroke-width: 1;
+        font-size: 7px;
+        fill: #5f9c54;
       }
 
       .legend {
         font-family: Consolas, "Courier New", monospace;
-        font-size: 9px;
-        fill: #76b867;
+        font-size: 8px;
+        font-weight: 700;
+        fill: #7abd67;
+      }
+
+      .line {
+        stroke: #9fe870;
+        stroke-width: 1;
+        stroke-opacity: 0.22;
+      }
+
+      @keyframes flicker {
+        0%, 100% { opacity: 1; }
+        45% { opacity: 0.96; }
+        46% { opacity: 0.9; }
+        47% { opacity: 0.98; }
+      }
+
+      .crt {
+        animation: flicker 4s infinite;
       }
     </style>
   </defs>
 
-  <rect width="850" height="340" rx="20" fill="#050705"/>
+  <rect width="650" height="230" rx="10" fill="#010302"/>
 
-  <g filter="url(#shadow)">
-    <rect x="18" y="18" width="814" height="304" rx="18" fill="url(#frame)" stroke="#7d7652" stroke-width="2"/>
+  <rect
+    x="8"
+    y="8"
+    width="634"
+    height="214"
+    rx="10"
+    fill="url(#screen)"
+    stroke="#9fe870"
+    stroke-opacity="0.45"
+    stroke-width="1.4"
+  />
 
-    <circle cx="44" cy="40" r="4" fill="#9fe870"/>
-    <circle cx="60" cy="40" r="4" fill="#d7c06a"/>
-    <circle cx="76" cy="40" r="4" fill="#8b5a34"/>
+  <rect x="8" y="8" width="634" height="214" rx="10" fill="url(#noise)" />
+  <rect x="8" y="8" width="634" height="214" rx="10" fill="url(#scanlines)" />
 
-    <text x="98" y="45" class="title">RETRO CONTRIBUTION TERMINAL</text>
+  <g class="crt">
+    <text x="28" y="36" class="screen-title">WASTELAND DEV-TERM // USER: ${login}</text>
 
-    <rect x="34" y="62" width="782" height="240" rx="12" fill="url(#screen)" stroke="#9fe870" stroke-opacity="0.45"/>
-    <rect x="34" y="62" width="782" height="240" rx="12" fill="url(#scanlines)"/>
+    <text x="28" y="58" class="label">PROFILE: ${profile}</text>
+    <text x="28" y="78" class="label">GITHUB CONTRIBUTION MATRIX // LAST 12 MONTHS</text>
 
-    <text x="58" y="94" class="main">WASTELAND DEV-TERM // USER: ${login}</text>
-    <text x="58" y="118" class="label">GITHUB CONTRIBUTION MATRIX // LAST 12 MONTHS</text>
-
-    <line x1="58" y1="130" x2="790" y2="130" class="line"/>
+    <line x1="28" y1="88" x2="575" y2="88" class="line"/>
 
     ${grid}
 
-    <text x="58" y="260" class="legend">LESS</text>
-    <rect x="94" y="253" width="9" height="9" rx="1.5" fill="#07130a" stroke="#9fe870" stroke-opacity="0.14"/>
-    <rect x="110" y="253" width="9" height="9" rx="1.5" fill="#1d3b21"/>
-    <rect x="126" y="253" width="9" height="9" rx="1.5" fill="#2f6b35"/>
-    <rect x="142" y="253" width="9" height="9" rx="1.5" fill="#55a448"/>
-    <rect x="158" y="253" width="9" height="9" rx="1.5" fill="#b8ff6a"/>
-    <text x="178" y="260" class="legend">MORE</text>
-
-    <text x="610" y="260" class="label">TOTAL CONTRIBUTIONS</text>
-    <text x="610" y="288" class="total">${total}</text>
-
-    <text x="58" y="288" class="legend">BUILD: ${generatedAt}</text>
+    <text x="58" y="197" class="legend">LESS</text>
+    <rect x="96" y="190" width="8" height="8" rx="1.2" fill="#061108" stroke="#8fdc73" stroke-opacity="0.12"/>
+    <rect x="112" y="190" width="8" height="8" rx="1.2" fill="#17341b"/>
+    <rect x="128" y="190" width="8" height="8" rx="1.2" fill="#245f2a"/>
+    <rect x="144" y="190" width="8" height="8" rx="1.2" fill="#48a13e"/>
+    <rect x="160" y="190" width="8" height="8" rx="1.2" fill="#b8ff6a"/>
+    <text x="180" y="197" class="legend">MORE</text>
   </g>
 </svg>`;
 }
