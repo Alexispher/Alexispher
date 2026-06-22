@@ -1,0 +1,16 @@
+Windows PowerShell - Alexispher
+Last login: Mon, 22 Jun 2026 10:53:09 GMT on ttys000
+Type 'help' to view available commands.
+PS C:\Users\Alexispher> whoami
+desktop-dev\alexispher
+OS: Windows
+Role: Software Developer
+PS C:\Users\Alexispher> cat skills.txt
+[MAIN SKILLS]
+- Python
+- JavaScript
+[CURRENTLY STUDYING]
+- Java, Rust, SQL
+PS C:\Users\Alexispher> ./generate_3d_contribution.exe
+Executing matrix... rendering below.
+█
