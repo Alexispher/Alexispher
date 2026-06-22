@@ -62,9 +62,7 @@
         <text x="20" y="140"><tspan class="prompt">PS C:\Users\Alexispher&gt;</tspan> <tspan class="cmd type-cmd1">whoami</tspan></text>
         <text x="20" y="170" class="highlight show-line1">desktop-dev\alexispher</text>
         <text x="20" y="195" class="show-line2">OS:          Windows</text>
-        <text x="20" y="220" class="show-line3">Faith:       Jesus Christ</text>
-        <text x="20" y="245" class="show-line4">Partner:     Ada Wong</text>
-        
+
         <!-- Comando 2: cat skills.txt -->
         <text x="20" y="290" class="type-cmd2"><tspan class="prompt">PS C:\Users\Alexispher&gt;</tspan> <tspan class="cmd">cat skills.txt</tspan></text>
         <text x="20" y="320" class="info show-line5">[MAIN SKILLS]</text>
