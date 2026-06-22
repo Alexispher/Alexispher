@@ -12,8 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -23,8 +22,10 @@ jobs:
       - name: Run Python Script
         run: python build_gameboy.py
         
-      - name: Commit and Push Image
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "update: Gameboy contributions"
-          file_pattern: "gameboy_contrib.svg"
+      - name: Commit and Push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add gameboy_contrib.svg
+          git commit -m "update: Gameboy contributions" || exit 0
+          git push
