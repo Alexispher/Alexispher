@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="600" viewBox="0 0 850 600">
+    <defs>
+        <style>
+            .bg { fill: rgba(12, 12, 12, 0.95); }
+            .topbar { fill: #1c1c1c; }
+            .text { font-family: Consolas, 'Courier New', monospace; font-size: 15px; fill: #cccccc; }
+            .prompt { fill: #16c60c; font-weight: bold; }
+            .cmd { fill: #ffffff; }
+            .info { fill: #5ed7ff; }
+            .highlight { fill: #ffbf2f; }
+            .success { fill: #25cc3e; }
+            .error { fill: #ff6159; }
+            
+            /* Animações nativas permitidas pelo GitHub */
+            .cursor { fill: #ffffff; animation: blink 1s step-end infinite; }
+            @keyframes blink { 50% { opacity: 0; } }
+            
+            .type-cmd1 { stroke-dasharray: 60; stroke-dashoffset: 60; animation: typing 1s steps(6, end) 1s forwards; }
+            .show-line1 { opacity: 0; animation: reveal 0.1s 2.2s forwards; }
+            .show-line2 { opacity: 0; animation: reveal 0.1s 2.4s forwards; }
+            .show-line3 { opacity: 0; animation: reveal 0.1s 2.6s forwards; }
+            .show-line4 { opacity: 0; animation: reveal 0.1s 2.8s forwards; }
+            
+            .type-cmd2 { opacity: 0; animation: reveal 0.1s 3.5s forwards; }
+            .show-line5 { opacity: 0; animation: reveal 0.1s 4.5s forwards; }
+            .show-line6 { opacity: 0; animation: reveal 0.1s 4.7s forwards; }
+            .show-line7 { opacity: 0; animation: reveal 0.1s 4.9s forwards; }
+            .show-line8 { opacity: 0; animation: reveal 0.1s 5.1s forwards; }
+            .show-line9 { opacity: 0; animation: reveal 0.1s 5.3s forwards; }
+            .show-line10 { opacity: 0; animation: reveal 0.1s 5.5s forwards; }
+            .show-line11 { opacity: 0; animation: reveal 0.1s 5.7s forwards; }
+            
+            .type-cmd3 { opacity: 0; animation: reveal 0.1s 6.5s forwards; }
+            .show-line12 { opacity: 0; animation: reveal 0.1s 7.5s forwards; }
+            .show-line13 { opacity: 0; animation: reveal 0.1s 7.9s forwards; }
+            
+            @keyframes reveal { to { opacity: 1; } }
+            @keyframes typing { to { stroke-dashoffset: 0; } }
+        </style>
+    </defs>
+    
+    <!-- Fundo da Janela -->
+    <rect width="850" height="600" rx="8" ry="8" class="bg" stroke="#333333" stroke-width="2"/>
+    <rect width="850" height="35" rx="8" class="topbar"/>
+    <rect width="850" height="15" y="20" class="topbar"/> 
+    <line x1="0" y1="35" x2="850" y2="35" stroke="#333333" stroke-width="1"/>
+    
+    <!-- Botões da Janela -->
+    <circle cx="20" cy="17" r="6" fill="#ff5f56"/>
+    <circle cx="40" cy="17" r="6" fill="#ffbd2e"/>
+    <circle cx="60" cy="17" r="6" fill="#27c93f"/>
+    
+    <!-- Título -->
+    <text x="425" y="22" font-family="Helvetica, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">Windows PowerShell - Alexispher</text>
+    
+    <!-- Conteúdo do Terminal -->
+    <g class="text">
+        <text x="20" y="70">Last login: Mon, 22 Jun 2026 10:57:29 GMT on ttys000</text>
+        <text x="20" y="95">Type 'help' to view available commands.</text>
+        
+        <!-- Comando 1: whoami -->
+        <text x="20" y="140"><tspan class="prompt">PS C:\Users\Alexispher&gt;</tspan> <tspan class="cmd type-cmd1">whoami</tspan></text>
+        <text x="20" y="170" class="highlight show-line1">desktop-dev\alexispher</text>
+        <text x="20" y="195" class="show-line2">OS:          Windows</text>
+        <text x="20" y="220" class="show-line3">Faith:       Jesus Christ</text>
+        <text x="20" y="245" class="show-line4">Partner:     Ada Wong</text>
+        
+        <!-- Comando 2: cat skills.txt -->
+        <text x="20" y="290" class="type-cmd2"><tspan class="prompt">PS C:\Users\Alexispher&gt;</tspan> <tspan class="cmd">cat skills.txt</tspan></text>
+        <text x="20" y="320" class="info show-line5">[MAIN SKILLS]</text>
+        <text x="20" y="345" class="show-line6">&gt; Python</text>
+        <text x="20" y="365" class="show-line7">&gt; JavaScript</text>
+        <text x="20" y="395" class="info show-line8">[CURRENTLY STUDYING]</text>
+        <text x="20" y="420" class="show-line9">&gt; Java</text>
+        <text x="20" y="440" class="show-line10">&gt; Rust</text>
+        <text x="20" y="460" class="show-line11">&gt; SQL</text>
+        
+        <!-- Comando 3: Execução Falsa do Gráfico -->
+        <text x="20" y="505" class="type-cmd3"><tspan class="prompt">PS C:\Users\Alexispher&gt;</tspan> <tspan class="cmd">./fetch_github_data.exe</tspan></text>
+        <text x="20" y="535" class="show-line12">Connecting to api.github.com...</text>
+        <text x="20" y="560" class="success show-line13">Success! Rendering 3D contribution matrix below.</text>
+        
+        <!-- Cursor piscando -->
+        <text x="410" y="560" class="show-line13"><tspan class="cursor">█</tspan></text>
+    </g>
+</svg>
