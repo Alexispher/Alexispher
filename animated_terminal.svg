@@ -1,112 +1,247 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="850" height="520" viewBox="0 0 850 520">
-    <defs>
-        <style>
-            /* Cores e Fontes do Windows 11 Terminal */
-            .bg { fill: #0c0c0c; }
-            .topbar { fill: #1c1c1c; }
-            .text { font-family: Consolas, 'Courier New', monospace; font-size: 15px; fill: #cccccc; }
-            .prompt { fill: #16c60c; }
-            .cmd { fill: #ffffff; font-weight: bold; }
-            .highlight { fill: #ffbf2f; }
-            .success { fill: #27c93f; }
-            .header { fill: #888888; }
-            .property { fill: #5ed7ff; }
+  <defs>
+    <style>
+      .terminal-bg { fill: #0c0c0c; }
+      .topbar { fill: #1c1c1c; }
+      .tab { fill: #0c0c0c; }
 
-            /* Animações Core */
-            @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
-            @keyframes show { to { opacity: 1; } }
-            @keyframes hide { to { opacity: 0; } }
+      .text {
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 13px;
+        fill: #cccccc;
+      }
 
-            /* Comando 1: Get-DeveloperProfile */
-            .cover1 { animation: type1 0.8s steps(20, end) 0.5s forwards; }
-            @keyframes type1 { to { width: 0; x: 405px; } }
-            
-            .cursor1 { animation: blink 0.5s step-end 1, moveC1 0.8s steps(20, end) 0.5s forwards, hide 0.1s 1.3s forwards; }
-            @keyframes moveC1 { to { transform: translateX(180px); } }
+      .title {
+        font-family: "Segoe UI", Arial, sans-serif;
+        font-size: 12px;
+        fill: #cccccc;
+      }
 
-            .out1-1 { opacity: 0; animation: show 0.1s 1.4s forwards; }
-            .out1-2 { opacity: 0; animation: show 0.1s 1.5s forwards; }
-            .out1-3 { opacity: 0; animation: show 0.1s 1.6s forwards; }
-            .out1-4 { opacity: 0; animation: show 0.1s 1.7s forwards; }
+      .header { fill: #888888; }
+      .prompt { fill: #16c60c; }
+      .cmd { fill: #ffffff; font-weight: 700; }
+      .error { fill: #f44747; }
+      .muted { fill: #888888; }
+      .property { fill: #5ed7ff; }
+      .highlight { fill: #ffbf2f; }
+      .success { fill: #27c93f; }
 
-            /* Comando 2: Get-Content skills.txt */
-            .step2 { opacity: 0; animation: show 0.1s 2.5s forwards; }
-            
-            .cover2 { animation: type2 0.8s steps(22, end) 3.0s forwards; }
-            @keyframes type2 { to { width: 0; x: 425px; } }
-            
-            .cursor2 { opacity: 0; animation: show 0.1s 2.5s forwards, blink 0.5s step-end 1 2.5s, moveC2 0.8s steps(22, end) 3.0s forwards, hide 0.1s 3.8s forwards; }
-            @keyframes moveC2 { to { transform: translateX(200px); } }
+      @keyframes blink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
 
-            .out2-1 { opacity: 0; animation: show 0.1s 3.9s forwards; }
-            .out2-2 { opacity: 0; animation: show 0.1s 4.0s forwards; }
-            .out2-3 { opacity: 0; animation: show 0.1s 4.1s forwards; }
-            .out2-4 { opacity: 0; animation: show 0.1s 4.2s forwards; }
+      .cursor-final {
+        animation: blink 1s step-end infinite;
+      }
+    </style>
 
-            /* Comando 3: fetch_github_data.exe */
-            .step3 { opacity: 0; animation: show 0.1s 5.0s forwards; }
-            
-            .cover3 { animation: type3 0.9s steps(23, end) 5.5s forwards; }
-            @keyframes type3 { to { width: 0; x: 435px; } }
-            
-            .cursor3 { opacity: 0; animation: show 0.1s 5.0s forwards, blink 0.5s step-end 1 5.0s, moveC3 0.9s steps(23, end) 5.5s forwards, hide 0.1s 6.4s forwards; }
-            @keyframes moveC3 { to { transform: translateX(210px); } }
+    <!-- Animação de digitação por máscara -->
+    <clipPath id="clip-wrong">
+      <rect x="225" y="106" width="0" height="20">
+        <animate attributeName="width" from="0" to="28" begin="0.55s" dur="0.35s" fill="freeze" />
+      </rect>
+    </clipPath>
 
-            .out3-1 { opacity: 0; animation: show 0.1s 6.6s forwards; }
-            .out3-2 { opacity: 0; animation: show 0.1s 7.8s forwards; }
+    <clipPath id="clip-cd">
+      <rect x="225" y="222" width="0" height="20">
+        <animate attributeName="width" from="0" to="130" begin="2.55s" dur="0.70s" fill="freeze" />
+      </rect>
+    </clipPath>
 
-            /* Prompt Final */
-            .step4 { opacity: 0; animation: show 0.1s 8.5s forwards; }
-            .cursor4 { opacity: 0; animation: show 0.1s 8.5s forwards, blink 1s step-end infinite 8.5s; }
-        </style>
-    </defs>
-    
-    <rect width="850" height="520" rx="8" ry="8" fill="#0c0c0c" stroke="#333333" stroke-width="1"/>
-    
-    <path d="M 1 9 A 8 8 0 0 1 9 1 L 841 1 A 8 8 0 0 1 849 9 L 849 40 L 1 40 Z" fill="#1c1c1c"/>
-    
-    <path d="M 10 16 A 6 6 0 0 1 16 10 L 224 10 A 6 6 0 0 1 230 16 L 230 40 L 10 40 Z" fill="#0c0c0c"/>
-    <text x="22" y="29" font-family="Consolas" font-size="14" fill="#3b78ff">&gt;_</text>
-    <text x="45" y="28" font-family="Segoe UI, Helvetica, sans-serif" font-size="12" fill="#cccccc">Windows PowerShell</text>
-    
-    <path d="M 760 20 L 770 20" stroke="#cccccc" stroke-width="1.2"/>
-    <rect x="795" y="15" width="10" height="10" stroke="#cccccc" stroke-width="1.2" fill="none"/>
-    <path d="M 830 15 L 840 25 M 840 15 L 830 25" stroke="#cccccc" stroke-width="1.2"/>
-    
-    <g class="text">
-        <text x="20" y="70" class="header">Windows PowerShell</text>
-        <text x="20" y="90" class="header">Copyright (C) Microsoft Corporation. All rights reserved.</text>
-        
-        <text x="20" y="130"><tspan class="prompt">PS C:\Users\Alexispher&gt;</tspan> <tspan class="cmd">Get-DeveloperProfile</tspan></text>
-        <rect x="225" y="115" width="180" height="20" fill="#0c0c0c" class="cover1" />
-        <text x="225" y="130" class="cursor1">█</text>
+    <clipPath id="clip-profile">
+      <rect x="225" y="250" width="0" height="20">
+        <animate attributeName="width" from="0" to="178" begin="3.55s" dur="0.90s" fill="freeze" />
+      </rect>
+    </clipPath>
 
-        <text x="20" y="160" class="out1-1"><tspan class="property">AccountName</tspan>    : desktop-dev\alexispher</text>
-        <text x="20" y="180" class="out1-2"><tspan class="property">OSVersion</tspan>      : Windows 11 Pro</text>
-        <text x="20" y="200" class="out1-3"><tspan class="property">Environment</tspan>    : PowerShell 7.4.2</text>
-        <text x="20" y="220" class="out1-4"><tspan class="property">Role</tspan>           : Software Developer</text>
+    <clipPath id="clip-skills">
+      <rect x="225" y="342" width="0" height="20">
+        <animate attributeName="width" from="0" to="214" begin="5.55s" dur="0.95s" fill="freeze" />
+      </rect>
+    </clipPath>
 
-        <g class="step2">
-            <text x="20" y="260"><tspan class="prompt">PS C:\Users\Alexispher&gt;</tspan> <tspan class="cmd">Get-Content skills.txt</tspan></text>
-            <rect x="225" y="245" width="200" height="20" fill="#0c0c0c" class="cover2" />
-        </g>
-        <text x="225" y="260" class="cursor2">█</text>
+    <clipPath id="clip-build">
+      <rect x="225" y="416" width="0" height="20">
+        <animate attributeName="width" from="0" to="292" begin="7.45s" dur="1.10s" fill="freeze" />
+      </rect>
+    </clipPath>
+  </defs>
 
-        <text x="20" y="290" class="out2-1 highlight">[MAIN SKILLS]</text>
-        <text x="20" y="310" class="out2-2">&gt; Python, JavaScript</text>
-        <text x="20" y="340" class="out2-3 highlight">[CURRENTLY STUDYING]</text>
-        <text x="20" y="360" class="out2-4">&gt; Java, Rust, SQL</text>
+  <!-- Janela -->
+  <rect width="850" height="520" rx="8" ry="8" class="terminal-bg" stroke="#333333" stroke-width="1" />
 
-        <g class="step3">
-            <text x="20" y="400"><tspan class="prompt">PS C:\Users\Alexispher&gt;</tspan> <tspan class="cmd">.\fetch_github_data.exe</tspan></text>
-            <rect x="225" y="385" width="210" height="20" fill="#0c0c0c" class="cover3" />
-        </g>
-        <text x="225" y="400" class="cursor3">█</text>
+  <!-- Barra superior -->
+  <path d="M1 9 A8 8 0 0 1 9 1 H841 A8 8 0 0 1 849 9 V40 H1 Z" class="topbar" />
 
-        <text x="20" y="430" class="out3-1">Initialising connection to api.github.com...</text>
-        <text x="20" y="455" class="out3-2 success">Success! Rendering 3D contribution matrix below.</text>
+  <!-- Aba -->
+  <path d="M10 16 A6 6 0 0 1 16 10 H224 A6 6 0 0 1 230 16 V40 H10 Z" class="tab" />
+  <text x="22" y="29" font-family="Consolas, monospace" font-size="14" fill="#3b78ff">&gt;_</text>
+  <text x="45" y="28" class="title">Windows PowerShell</text>
 
-        <text x="20" y="495" class="step4"><tspan class="prompt">PS C:\Users\Alexispher&gt;</tspan></text>
-        <text x="225" y="495" class="cursor4">█</text>
+  <!-- Botões da janela -->
+  <path d="M760 20 H770" stroke="#cccccc" stroke-width="1.2" />
+  <rect x="795" y="15" width="10" height="10" stroke="#cccccc" stroke-width="1.2" fill="none" />
+  <path d="M830 15 L840 25 M840 15 L830 25" stroke="#cccccc" stroke-width="1.2" />
+
+  <g class="text">
+    <!-- Cabeçalho -->
+    <text x="20" y="66" class="header">Windows PowerShell</text>
+    <text x="20" y="84" class="header">Copyright (C) Microsoft Corporation. All rights reserved.</text>
+
+    <!-- Comando errado inicial -->
+    <text x="20" y="120">
+      <tspan class="prompt">PS C:\Users\Alexispher&gt;</tspan>
+    </text>
+
+    <g clip-path="url(#clip-wrong)">
+      <text x="225" y="120" class="cmd">248</text>
     </g>
+
+    <text x="225" y="120" opacity="0">█
+      <animate attributeName="opacity" from="0" to="1" begin="0.50s" dur="0.01s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="28 0" begin="0.55s" dur="0.35s" fill="freeze" />
+      <animate attributeName="opacity" from="1" to="0" begin="1.00s" dur="0.01s" fill="freeze" />
+    </text>
+
+    <!-- Erro padrão do PowerShell -->
+    <text x="20" y="146" class="error" opacity="0">
+      248 : The term '248' is not recognized as the name of a cmdlet, function, script file, or executable program.
+      <set attributeName="opacity" to="1" begin="1.15s" fill="freeze" />
+    </text>
+
+    <text x="20" y="164" class="error" opacity="0">
+      Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+      <set attributeName="opacity" to="1" begin="1.25s" fill="freeze" />
+    </text>
+
+    <text x="20" y="182" class="muted" opacity="0">
+      At line:1 char:1
+      <set attributeName="opacity" to="1" begin="1.35s" fill="freeze" />
+    </text>
+
+    <text x="20" y="200" class="muted" opacity="0">
+      + 248
+      <set attributeName="opacity" to="1" begin="1.45s" fill="freeze" />
+    </text>
+
+    <text x="20" y="218" class="muted" opacity="0">
+      + ~~~    + CategoryInfo : ObjectNotFound: (248:String) [], CommandNotFoundException
+      <set attributeName="opacity" to="1" begin="1.55s" fill="freeze" />
+    </text>
+
+    <!-- cd no repositório -->
+    <text x="20" y="236" opacity="0">
+      <tspan class="prompt">PS C:\Users\Alexispher&gt;</tspan>
+      <set attributeName="opacity" to="1" begin="2.45s" fill="freeze" />
+    </text>
+
+    <g clip-path="url(#clip-cd)">
+      <text x="225" y="236" class="cmd">cd .\Alexispher</text>
+    </g>
+
+    <text x="225" y="236" opacity="0">█
+      <animate attributeName="opacity" from="0" to="1" begin="2.50s" dur="0.01s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="130 0" begin="2.55s" dur="0.70s" fill="freeze" />
+      <animate attributeName="opacity" from="1" to="0" begin="3.35s" dur="0.01s" fill="freeze" />
+    </text>
+
+    <!-- Profile -->
+    <text x="20" y="264" opacity="0">
+      <tspan class="prompt">PS C:\Users\Alexispher\Alexispher&gt;</tspan>
+      <set attributeName="opacity" to="1" begin="3.45s" fill="freeze" />
+    </text>
+
+    <g clip-path="url(#clip-profile)">
+      <text x="312" y="264" class="cmd">Get-DeveloperProfile</text>
+    </g>
+
+    <text x="312" y="264" opacity="0">█
+      <animate attributeName="opacity" from="0" to="1" begin="3.50s" dur="0.01s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="178 0" begin="3.55s" dur="0.90s" fill="freeze" />
+      <animate attributeName="opacity" from="1" to="0" begin="4.55s" dur="0.01s" fill="freeze" />
+    </text>
+
+    <text x="20" y="290" opacity="0">
+      <tspan class="property">AccountName</tspan> : desktop-dev\alexispher
+      <set attributeName="opacity" to="1" begin="4.70s" fill="freeze" />
+    </text>
+
+    <text x="20" y="308" opacity="0">
+      <tspan class="property">Repository</tspan>  : github.com/Alexispher/Alexispher
+      <set attributeName="opacity" to="1" begin="4.80s" fill="freeze" />
+    </text>
+
+    <text x="20" y="326" opacity="0">
+      <tspan class="property">Role</tspan>        : Software Developer
+      <set attributeName="opacity" to="1" begin="4.90s" fill="freeze" />
+    </text>
+
+    <!-- Skills -->
+    <text x="20" y="356" opacity="0">
+      <tspan class="prompt">PS C:\Users\Alexispher\Alexispher&gt;</tspan>
+      <set attributeName="opacity" to="1" begin="5.45s" fill="freeze" />
+    </text>
+
+    <g clip-path="url(#clip-skills)">
+      <text x="312" y="356" class="cmd">Get-Content .\skills.txt</text>
+    </g>
+
+    <text x="312" y="356" opacity="0">█
+      <animate attributeName="opacity" from="0" to="1" begin="5.50s" dur="0.01s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="214 0" begin="5.55s" dur="0.95s" fill="freeze" />
+      <animate attributeName="opacity" from="1" to="0" begin="6.60s" dur="0.01s" fill="freeze" />
+    </text>
+
+    <text x="20" y="382" class="highlight" opacity="0">
+      [MAIN SKILLS]
+      <set attributeName="opacity" to="1" begin="6.75s" fill="freeze" />
+    </text>
+
+    <text x="20" y="400" opacity="0">
+      &gt; Python, JavaScript, Java
+      <set attributeName="opacity" to="1" begin="6.85s" fill="freeze" />
+    </text>
+
+    <!-- Build realista do SVG -->
+    <text x="20" y="430" opacity="0">
+      <tspan class="prompt">PS C:\Users\Alexispher\Alexispher&gt;</tspan>
+      <set attributeName="opacity" to="1" begin="7.35s" fill="freeze" />
+    </text>
+
+    <g clip-path="url(#clip-build)">
+      <text x="312" y="430" class="cmd">node .\scripts\build-gameboy.js</text>
+    </g>
+
+    <text x="312" y="430" opacity="0">█
+      <animate attributeName="opacity" from="0" to="1" begin="7.40s" dur="0.01s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="292 0" begin="7.45s" dur="1.10s" fill="freeze" />
+      <animate attributeName="opacity" from="1" to="0" begin="8.65s" dur="0.01s" fill="freeze" />
+    </text>
+
+    <text x="20" y="456" opacity="0">
+      Reading contribution calendar from GitHub GraphQL...
+      <set attributeName="opacity" to="1" begin="8.85s" fill="freeze" />
+    </text>
+
+    <text x="20" y="474" opacity="0">
+      Mapping contribution levels to retro LCD pixels...
+      <set attributeName="opacity" to="1" begin="9.20s" fill="freeze" />
+    </text>
+
+    <text x="20" y="492" class="success" opacity="0">
+      OK. gameboy_template.svg rebuilt with live contribution data.
+      <set attributeName="opacity" to="1" begin="9.60s" fill="freeze" />
+    </text>
+
+    <!-- Prompt final -->
+    <text x="20" y="512" opacity="0">
+      <tspan class="prompt">PS C:\Users\Alexispher\Alexispher&gt;</tspan>
+      <set attributeName="opacity" to="1" begin="10.20s" fill="freeze" />
+    </text>
+
+    <text x="312" y="512" class="cursor-final" opacity="0">█
+      <set attributeName="opacity" to="1" begin="10.20s" fill="freeze" />
+    </text>
+  </g>
 </svg>
