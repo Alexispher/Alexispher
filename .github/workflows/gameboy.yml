@@ -2,8 +2,8 @@ name: Generate Gameboy Contributions
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Roda automaticamente todo dia à meia-noite
-  workflow_dispatch: # Cria um botão para você rodar manualmente quando quiser
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -12,20 +12,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
       
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.10'
           
       - name: Run Python Script
         run: python build_gameboy.py
         
-      - name: Commit and Push
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add gameboy_contrib.svg
-          git commit -m "update: Gameboy contributions" || exit 0
-          git push
+      - name: Commit and Push Image
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "update: Gameboy contributions"
+          file_pattern: "gameboy_contrib.svg"
