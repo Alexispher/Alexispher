@@ -1,9 +1,9 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Alexispher/Alexispher/main/animated_terminal.svg" alt="Terminal" width="850" />
+  <img src="./animated_terminal.svg" alt="Terminal" width="850" />
 </div>
 
 <br>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Alexispher/Alexispher/main/gameboy_template.svg" alt="GitHub Contributions Game Boy" width="400" />
+  <img src="./gameboy_template.svg" alt="Retro GitHub Contributions Game Boy" width="430" />
 </div>
