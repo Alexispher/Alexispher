@@ -1,8 +1,6 @@
 name: Generate Gameboy Contributions
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
   workflow_dispatch:
 
 permissions:
@@ -14,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - name: Listar arquivos (Debug)
+        run: ls -la  # <--- Isso vai mostrar no log se o template está lá
+      
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -23,9 +24,7 @@ jobs:
         run: python build_gameboy.py
         
       - name: Commit and Push
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add gameboy_contrib.svg
-          git commit -m "update: Gameboy contributions" || exit 0
-          git push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "update: Gameboy"
+          file_pattern: "gameboy_contrib.svg"
