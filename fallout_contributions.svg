@@ -1,130 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
-  <title id="title">Alexispher GitHub Contributions - Retro Terminal</title>
-  <desc id="desc">A Fallout-inspired retro terminal displaying GitHub contributions and programming language icons.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="650" height="230" viewBox="0 0 650 230" role="img" aria-labelledby="title desc">
+  <title id="title">Alexispher GitHub Contributions</title>
+  <desc id="desc">Fallout-inspired retro GitHub contribution matrix.</desc>
 
   <defs>
-    <radialGradient id="screenGlow" cx="50%" cy="45%" r="65%">
-      <stop offset="0%" stop-color="#193c21"/>
-      <stop offset="70%" stop-color="#07120b"/>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#071509"/>
       <stop offset="100%" stop-color="#020403"/>
-    </radialGradient>
-
-    <linearGradient id="metalFrame" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#4b4a38"/>
-      <stop offset="35%" stop-color="#2c2d24"/>
-      <stop offset="100%" stop-color="#11140f"/>
     </linearGradient>
 
-    <filter id="terminalShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#000000" flood-opacity="0.55"/>
-    </filter>
-
-    <filter id="phosphorGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="0.45" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
     <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-      <rect x="0" y="0" width="4" height="1" fill="#b8ff6a" opacity="0.055"/>
+      <rect x="0" y="0" width="4" height="1" fill="#9fe870" opacity="0.045"/>
     </pattern>
 
-    <pattern id="noiseDots" width="22" height="22" patternUnits="userSpaceOnUse">
-      <circle cx="3" cy="4" r="0.7" fill="#b8ff6a" opacity="0.08"/>
-      <circle cx="14" cy="10" r="0.6" fill="#b8ff6a" opacity="0.05"/>
-      <circle cx="9" cy="18" r="0.5" fill="#d7c06a" opacity="0.06"/>
+    <pattern id="noise" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="5" r="0.6" fill="#9fe870" opacity="0.06"/>
+      <circle cx="15" cy="11" r="0.5" fill="#d7c06a" opacity="0.04"/>
+      <circle cx="9" cy="19" r="0.4" fill="#9fe870" opacity="0.05"/>
     </pattern>
 
     <style>
-      .frame-title {
+      .screen-title {
         font-family: Consolas, "Courier New", monospace;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 2px;
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 1.4px;
         fill: #d7c06a;
       }
 
-      .terminal-text {
-        font-family: Consolas, "Courier New", monospace;
-        fill: #b8ff6a;
-      }
-
-      .big-number {
-        font-family: Consolas, "Courier New", monospace;
-        font-size: 42px;
-        font-weight: 900;
-        fill: #b8ff6a;
-        filter: url(#phosphorGlow);
-      }
-
-      .small-label {
-        font-family: Consolas, "Courier New", monospace;
-        font-size: 10px;
-        fill: #78b96b;
-        letter-spacing: 1.2px;
-      }
-
-      .month-label {
+      .label {
         font-family: Consolas, "Courier New", monospace;
         font-size: 9px;
-        fill: #88d27b;
-        letter-spacing: 0.8px;
-      }
-
-      .day-label {
-        font-family: Consolas, "Courier New", monospace;
-        font-size: 8px;
-        fill: #5b9352;
-      }
-
-      .panel-line {
-        stroke: #b8ff6a;
-        stroke-opacity: 0.22;
-        stroke-width: 1;
-      }
-
-      .panel-box {
-        fill: #061009;
-        stroke: #b8ff6a;
-        stroke-opacity: 0.35;
-      }
-
-      .language-card rect {
-        fill: #07120b;
-        stroke: #b8ff6a;
-        stroke-opacity: 0.35;
-      }
-
-      .language-text {
-        font-family: Consolas, "Courier New", monospace;
-        font-size: 12px;
         font-weight: 700;
-        fill: #b8ff6a;
+        letter-spacing: 1px;
+        fill: #8fdc73;
       }
 
-      .icon-dark {
-        font-family: Consolas, "Courier New", monospace;
-        font-size: 10px;
-        font-weight: 900;
-        fill: #07120b;
-      }
-
-      .icon-green {
+      .month {
         font-family: Consolas, "Courier New", monospace;
         font-size: 8px;
-        font-weight: 900;
-        fill: #b8ff6a;
+        font-weight: 700;
+        fill: #7abd67;
+      }
+
+      .day {
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 7px;
+        fill: #5f9c54;
+      }
+
+      .legend {
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 8px;
+        font-weight: 700;
+        fill: #7abd67;
+      }
+
+      .line {
+        stroke: #9fe870;
+        stroke-width: 1;
+        stroke-opacity: 0.22;
       }
 
       @keyframes flicker {
         0%, 100% { opacity: 1; }
         45% { opacity: 0.96; }
-        46% { opacity: 0.84; }
+        46% { opacity: 0.9; }
         47% { opacity: 0.98; }
-        70% { opacity: 0.92; }
       }
 
       .crt {
@@ -133,4584 +75,4454 @@
     </style>
   </defs>
 
-  <rect width="900" height="520" rx="24" fill="#050705"/>
+  <rect width="650" height="230" rx="10" fill="#010302"/>
 
-  <g filter="url(#terminalShadow)">
-    <rect x="18" y="18" width="864" height="484" rx="22" fill="url(#metalFrame)" stroke="#79765b" stroke-width="2"/>
+  <rect
+    x="8"
+    y="8"
+    width="634"
+    height="214"
+    rx="10"
+    fill="url(#screen)"
+    stroke="#9fe870"
+    stroke-opacity="0.45"
+    stroke-width="1.4"
+  />
 
-    <rect x="34" y="54" width="832" height="410" rx="18" fill="#020403" stroke="#a69b63" stroke-width="1.5"/>
-    <rect x="44" y="64" width="812" height="390" rx="14" fill="url(#screenGlow)" stroke="#b8ff6a" stroke-opacity="0.28"/>
+  <rect x="8" y="8" width="634" height="214" rx="10" fill="url(#noise)" />
+  <rect x="8" y="8" width="634" height="214" rx="10" fill="url(#scanlines)" />
 
-    <g class="crt">
-      <rect x="44" y="64" width="812" height="390" rx="14" fill="url(#noiseDots)"/>
-      <rect x="44" y="64" width="812" height="390" rx="14" fill="url(#scanlines)"/>
+  <g class="crt">
+    <text x="28" y="36" class="screen-title">WASTELAND DEV-TERM // USER: Alexispher</text>
 
-      <text x="64" y="96" class="frame-title">WASTELAND DEV-TERM // USER: Alexispher</text>
-      <text x="64" y="118" class="small-label">PROFILE: Hcvll </text>
-      <text x="64" y="139" class="small-label">GITHUB CONTRIBUTION MATRIX // LAST 12 MONTHS</text>
+    <text x="28" y="58" class="label">PROFILE: Hcv11</text>
+    <text x="28" y="78" class="label">GITHUB CONTRIBUTION MATRIX // LAST 12 MONTHS</text>
 
-      <line x1="64" y1="150" x2="548" y2="150" class="panel-line"/>
+    <line x1="28" y1="88" x2="575" y2="88" class="line"/>
 
-      
     
-        <text
-          x="70"
-          y="157"
-          class="month-label"
-        >JUN</text>
-        <text
-          x="88"
-          y="157"
-          class="month-label"
-        >JUL</text>
-        <text
-          x="124"
-          y="157"
-          class="month-label"
-        >AUG</text>
-        <text
-          x="169"
-          y="157"
-          class="month-label"
-        >SEP</text>
-        <text
-          x="205"
-          y="157"
-          class="month-label"
-        >OCT</text>
-        <text
-          x="241"
-          y="157"
-          class="month-label"
-        >NOV</text>
-        <text
-          x="286"
-          y="157"
-          class="month-label"
-        >DEC</text>
-        <text
-          x="322"
-          y="157"
-          class="month-label"
-        >JAN</text>
-        <text
-          x="358"
-          y="157"
-          class="month-label"
-        >FEB</text>
-        <text
-          x="394"
-          y="157"
-          class="month-label"
-        >MAR</text>
-        <text
-          x="439"
-          y="157"
-          class="month-label"
-        >APR</text>
-        <text
-          x="475"
-          y="157"
-          class="month-label"
-        >MAY</text>
-        <text
-          x="520"
-          y="157"
-          class="month-label"
-        >JUN</text>
+    
+        <text x="58" y="97" class="month">JUN</text>
+        <text x="78.4" y="97" class="month">JUL</text>
+        <text x="119.19999999999999" y="97" class="month">AUG</text>
+        <text x="170.2" y="97" class="month">SEP</text>
+        <text x="211" y="97" class="month">OCT</text>
+        <text x="251.79999999999998" y="97" class="month">NOV</text>
+        <text x="302.79999999999995" y="97" class="month">DEC</text>
+        <text x="343.59999999999997" y="97" class="month">JAN</text>
+        <text x="384.4" y="97" class="month">FEB</text>
+        <text x="425.2" y="97" class="month">MAR</text>
+        <text x="476.2" y="97" class="month">APR</text>
+        <text x="517" y="97" class="month">MAY</text>
+        <text x="568" y="97" class="month">JUN</text>
 
-    <text x="45" y="177" class="day-label">SUN</text>
-    <text x="45" y="195" class="day-label">TUE</text>
-    <text x="45" y="213" class="day-label">THU</text>
-    <text x="45" y="231" class="day-label">SAT</text>
+    <text x="20" y="115" class="day">SUN</text>
+    <text x="20" y="135.4" class="day">TUE</text>
+    <text x="20" y="155.8" class="day">THU</text>
+    <text x="20" y="176.2" class="day">SAT</text>
 
-    <g filter="url(#phosphorGlow)">
+    <g>
       
         <rect
-          x="70.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="58.00"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-06-22: 0 contribution(s)</title>
         </rect>
         <rect
-          x="70.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="58.00"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-06-23: 0 contribution(s)</title>
         </rect>
         <rect
-          x="70.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="58.00"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-06-24: 0 contribution(s)</title>
         </rect>
         <rect
-          x="70.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="58.00"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-06-25: 0 contribution(s)</title>
         </rect>
         <rect
-          x="70.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="58.00"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-06-26: 0 contribution(s)</title>
         </rect>
         <rect
-          x="70.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="58.00"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-06-27: 0 contribution(s)</title>
         </rect>
         <rect
-          x="70.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="58.00"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-06-28: 0 contribution(s)</title>
         </rect>
         <rect
-          x="79.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="68.20"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-06-29: 0 contribution(s)</title>
         </rect>
         <rect
-          x="79.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="68.20"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-06-30: 0 contribution(s)</title>
         </rect>
         <rect
-          x="79.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="68.20"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-01: 0 contribution(s)</title>
         </rect>
         <rect
-          x="79.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="68.20"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-02: 0 contribution(s)</title>
         </rect>
         <rect
-          x="79.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="68.20"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-03: 0 contribution(s)</title>
         </rect>
         <rect
-          x="79.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="68.20"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-04: 0 contribution(s)</title>
         </rect>
         <rect
-          x="79.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="68.20"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-05: 0 contribution(s)</title>
         </rect>
         <rect
-          x="88.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="78.40"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-06: 0 contribution(s)</title>
         </rect>
         <rect
-          x="88.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="78.40"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-07: 0 contribution(s)</title>
         </rect>
         <rect
-          x="88.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="78.40"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-08: 0 contribution(s)</title>
         </rect>
         <rect
-          x="88.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="78.40"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-09: 0 contribution(s)</title>
         </rect>
         <rect
-          x="88.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="78.40"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-10: 0 contribution(s)</title>
         </rect>
         <rect
-          x="88.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="78.40"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-11: 0 contribution(s)</title>
         </rect>
         <rect
-          x="88.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="78.40"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-12: 0 contribution(s)</title>
         </rect>
         <rect
-          x="97.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="88.60"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-13: 0 contribution(s)</title>
         </rect>
         <rect
-          x="97.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="88.60"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-14: 0 contribution(s)</title>
         </rect>
         <rect
-          x="97.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="88.60"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-15: 0 contribution(s)</title>
         </rect>
         <rect
-          x="97.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="88.60"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-16: 0 contribution(s)</title>
         </rect>
         <rect
-          x="97.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="88.60"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-17: 0 contribution(s)</title>
         </rect>
         <rect
-          x="97.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="88.60"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-18: 0 contribution(s)</title>
         </rect>
         <rect
-          x="97.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="88.60"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-19: 0 contribution(s)</title>
         </rect>
         <rect
-          x="106.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="98.80"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-20: 0 contribution(s)</title>
         </rect>
         <rect
-          x="106.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="98.80"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-21: 0 contribution(s)</title>
         </rect>
         <rect
-          x="106.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="98.80"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-22: 0 contribution(s)</title>
         </rect>
         <rect
-          x="106.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="98.80"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-23: 0 contribution(s)</title>
         </rect>
         <rect
-          x="106.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="98.80"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-24: 0 contribution(s)</title>
         </rect>
         <rect
-          x="106.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="98.80"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-25: 0 contribution(s)</title>
         </rect>
         <rect
-          x="106.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="98.80"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-26: 0 contribution(s)</title>
         </rect>
         <rect
-          x="115.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="109.00"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-27: 0 contribution(s)</title>
         </rect>
         <rect
-          x="115.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="109.00"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-28: 0 contribution(s)</title>
         </rect>
         <rect
-          x="115.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="109.00"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-29: 0 contribution(s)</title>
         </rect>
         <rect
-          x="115.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="109.00"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-30: 0 contribution(s)</title>
         </rect>
         <rect
-          x="115.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="109.00"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-07-31: 0 contribution(s)</title>
         </rect>
         <rect
-          x="115.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="109.00"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-01: 0 contribution(s)</title>
         </rect>
         <rect
-          x="115.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="109.00"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-02: 0 contribution(s)</title>
         </rect>
         <rect
-          x="124.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="119.20"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-03: 0 contribution(s)</title>
         </rect>
         <rect
-          x="124.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="119.20"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-04: 0 contribution(s)</title>
         </rect>
         <rect
-          x="124.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="119.20"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-05: 0 contribution(s)</title>
         </rect>
         <rect
-          x="124.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="119.20"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-06: 0 contribution(s)</title>
         </rect>
         <rect
-          x="124.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="119.20"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-07: 0 contribution(s)</title>
         </rect>
         <rect
-          x="124.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="119.20"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-08: 0 contribution(s)</title>
         </rect>
         <rect
-          x="124.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="119.20"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-09: 0 contribution(s)</title>
         </rect>
         <rect
-          x="133.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="129.40"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-10: 0 contribution(s)</title>
         </rect>
         <rect
-          x="133.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="129.40"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-11: 0 contribution(s)</title>
         </rect>
         <rect
-          x="133.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="129.40"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-12: 0 contribution(s)</title>
         </rect>
         <rect
-          x="133.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="129.40"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-13: 0 contribution(s)</title>
         </rect>
         <rect
-          x="133.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="129.40"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-14: 0 contribution(s)</title>
         </rect>
         <rect
-          x="133.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="129.40"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-15: 0 contribution(s)</title>
         </rect>
         <rect
-          x="133.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="129.40"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-16: 0 contribution(s)</title>
         </rect>
         <rect
-          x="142.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="139.60"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-17: 0 contribution(s)</title>
         </rect>
         <rect
-          x="142.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="139.60"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-18: 0 contribution(s)</title>
         </rect>
         <rect
-          x="142.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="139.60"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-19: 0 contribution(s)</title>
         </rect>
         <rect
-          x="142.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="139.60"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-20: 0 contribution(s)</title>
         </rect>
         <rect
-          x="142.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="139.60"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-21: 0 contribution(s)</title>
         </rect>
         <rect
-          x="142.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="139.60"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-22: 0 contribution(s)</title>
         </rect>
         <rect
-          x="142.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="139.60"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-23: 0 contribution(s)</title>
         </rect>
         <rect
-          x="151.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="149.80"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-24: 0 contribution(s)</title>
         </rect>
         <rect
-          x="151.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="149.80"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-25: 0 contribution(s)</title>
         </rect>
         <rect
-          x="151.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="149.80"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-26: 0 contribution(s)</title>
         </rect>
         <rect
-          x="151.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="149.80"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-27: 0 contribution(s)</title>
         </rect>
         <rect
-          x="151.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="149.80"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-28: 0 contribution(s)</title>
         </rect>
         <rect
-          x="151.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="149.80"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-29: 0 contribution(s)</title>
         </rect>
         <rect
-          x="151.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="149.80"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-30: 0 contribution(s)</title>
         </rect>
         <rect
           x="160.00"
-          y="170.00"
-          width="7"
-          height="7"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-08-31: 0 contribution(s)</title>
         </rect>
         <rect
           x="160.00"
-          y="179.00"
-          width="7"
-          height="7"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-01: 0 contribution(s)</title>
         </rect>
         <rect
           x="160.00"
-          y="188.00"
-          width="7"
-          height="7"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-02: 0 contribution(s)</title>
         </rect>
         <rect
           x="160.00"
-          y="197.00"
-          width="7"
-          height="7"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-03: 0 contribution(s)</title>
         </rect>
         <rect
           x="160.00"
-          y="206.00"
-          width="7"
-          height="7"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-04: 0 contribution(s)</title>
         </rect>
         <rect
           x="160.00"
-          y="215.00"
-          width="7"
-          height="7"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-05: 0 contribution(s)</title>
         </rect>
         <rect
           x="160.00"
-          y="224.00"
-          width="7"
-          height="7"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-06: 0 contribution(s)</title>
         </rect>
         <rect
-          x="169.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="170.20"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-07: 0 contribution(s)</title>
         </rect>
         <rect
-          x="169.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="170.20"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-08: 0 contribution(s)</title>
         </rect>
         <rect
-          x="169.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="170.20"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-09: 0 contribution(s)</title>
         </rect>
         <rect
-          x="169.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="170.20"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-10: 0 contribution(s)</title>
         </rect>
         <rect
-          x="169.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="170.20"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-11: 0 contribution(s)</title>
         </rect>
         <rect
-          x="169.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="170.20"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-12: 0 contribution(s)</title>
         </rect>
         <rect
-          x="169.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="170.20"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-13: 0 contribution(s)</title>
         </rect>
         <rect
-          x="178.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="180.40"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-14: 0 contribution(s)</title>
         </rect>
         <rect
-          x="178.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="180.40"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-15: 0 contribution(s)</title>
         </rect>
         <rect
-          x="178.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="180.40"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-16: 0 contribution(s)</title>
         </rect>
         <rect
-          x="178.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="180.40"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-17: 0 contribution(s)</title>
         </rect>
         <rect
-          x="178.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="180.40"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-18: 0 contribution(s)</title>
         </rect>
         <rect
-          x="178.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="180.40"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-19: 0 contribution(s)</title>
         </rect>
         <rect
-          x="178.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="180.40"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-20: 0 contribution(s)</title>
         </rect>
         <rect
-          x="187.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="190.60"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-21: 0 contribution(s)</title>
         </rect>
         <rect
-          x="187.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="190.60"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-22: 0 contribution(s)</title>
         </rect>
         <rect
-          x="187.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="190.60"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-23: 0 contribution(s)</title>
         </rect>
         <rect
-          x="187.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="190.60"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-24: 0 contribution(s)</title>
         </rect>
         <rect
-          x="187.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="190.60"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-25: 0 contribution(s)</title>
         </rect>
         <rect
-          x="187.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="190.60"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-26: 0 contribution(s)</title>
         </rect>
         <rect
-          x="187.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="190.60"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-27: 0 contribution(s)</title>
         </rect>
         <rect
-          x="196.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="200.80"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-28: 0 contribution(s)</title>
         </rect>
         <rect
-          x="196.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="200.80"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-29: 0 contribution(s)</title>
         </rect>
         <rect
-          x="196.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="200.80"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-09-30: 0 contribution(s)</title>
         </rect>
         <rect
-          x="196.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="200.80"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-01: 0 contribution(s)</title>
         </rect>
         <rect
-          x="196.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="200.80"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-02: 0 contribution(s)</title>
         </rect>
         <rect
-          x="196.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="200.80"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-03: 0 contribution(s)</title>
         </rect>
         <rect
-          x="196.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="200.80"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-04: 0 contribution(s)</title>
         </rect>
         <rect
-          x="205.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="211.00"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-05: 0 contribution(s)</title>
         </rect>
         <rect
-          x="205.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="211.00"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-06: 0 contribution(s)</title>
         </rect>
         <rect
-          x="205.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="211.00"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-07: 0 contribution(s)</title>
         </rect>
         <rect
-          x="205.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="211.00"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-08: 0 contribution(s)</title>
         </rect>
         <rect
-          x="205.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="211.00"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-09: 0 contribution(s)</title>
         </rect>
         <rect
-          x="205.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="211.00"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-10: 0 contribution(s)</title>
         </rect>
         <rect
-          x="205.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="211.00"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-11: 0 contribution(s)</title>
         </rect>
         <rect
-          x="214.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="221.20"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-12: 0 contribution(s)</title>
         </rect>
         <rect
-          x="214.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="221.20"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-13: 0 contribution(s)</title>
         </rect>
         <rect
-          x="214.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="221.20"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-14: 0 contribution(s)</title>
         </rect>
         <rect
-          x="214.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="221.20"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-15: 0 contribution(s)</title>
         </rect>
         <rect
-          x="214.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="221.20"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-16: 0 contribution(s)</title>
         </rect>
         <rect
-          x="214.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="221.20"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-17: 0 contribution(s)</title>
         </rect>
         <rect
-          x="214.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="221.20"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-18: 0 contribution(s)</title>
         </rect>
         <rect
-          x="223.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="231.40"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-19: 0 contribution(s)</title>
         </rect>
         <rect
-          x="223.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="231.40"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-20: 0 contribution(s)</title>
         </rect>
         <rect
-          x="223.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="231.40"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-21: 0 contribution(s)</title>
         </rect>
         <rect
-          x="223.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="231.40"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-22: 0 contribution(s)</title>
         </rect>
         <rect
-          x="223.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="231.40"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-23: 0 contribution(s)</title>
         </rect>
         <rect
-          x="223.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="231.40"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-24: 0 contribution(s)</title>
         </rect>
         <rect
-          x="223.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="231.40"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-25: 0 contribution(s)</title>
         </rect>
         <rect
-          x="232.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="241.60"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-26: 0 contribution(s)</title>
         </rect>
         <rect
-          x="232.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="241.60"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-27: 0 contribution(s)</title>
         </rect>
         <rect
-          x="232.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="241.60"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-28: 0 contribution(s)</title>
         </rect>
         <rect
-          x="232.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="241.60"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-29: 0 contribution(s)</title>
         </rect>
         <rect
-          x="232.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="241.60"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-30: 0 contribution(s)</title>
         </rect>
         <rect
-          x="232.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="241.60"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-10-31: 0 contribution(s)</title>
         </rect>
         <rect
-          x="232.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="241.60"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-01: 0 contribution(s)</title>
         </rect>
         <rect
-          x="241.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="251.80"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-02: 0 contribution(s)</title>
         </rect>
         <rect
-          x="241.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="251.80"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-03: 0 contribution(s)</title>
         </rect>
         <rect
-          x="241.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="251.80"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-04: 0 contribution(s)</title>
         </rect>
         <rect
-          x="241.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="251.80"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-05: 0 contribution(s)</title>
         </rect>
         <rect
-          x="241.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="251.80"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-06: 0 contribution(s)</title>
         </rect>
         <rect
-          x="241.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="251.80"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-07: 0 contribution(s)</title>
         </rect>
         <rect
-          x="241.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="251.80"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-08: 0 contribution(s)</title>
         </rect>
         <rect
-          x="250.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="262.00"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-09: 0 contribution(s)</title>
         </rect>
         <rect
-          x="250.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="262.00"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-10: 0 contribution(s)</title>
         </rect>
         <rect
-          x="250.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="262.00"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-11: 0 contribution(s)</title>
         </rect>
         <rect
-          x="250.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="262.00"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-12: 0 contribution(s)</title>
         </rect>
         <rect
-          x="250.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="262.00"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-13: 0 contribution(s)</title>
         </rect>
         <rect
-          x="250.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="262.00"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-14: 0 contribution(s)</title>
         </rect>
         <rect
-          x="250.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="262.00"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-15: 0 contribution(s)</title>
         </rect>
         <rect
-          x="259.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="272.20"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-16: 0 contribution(s)</title>
         </rect>
         <rect
-          x="259.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="272.20"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-17: 0 contribution(s)</title>
         </rect>
         <rect
-          x="259.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="272.20"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-18: 0 contribution(s)</title>
         </rect>
         <rect
-          x="259.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="272.20"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-19: 0 contribution(s)</title>
         </rect>
         <rect
-          x="259.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="272.20"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-20: 0 contribution(s)</title>
         </rect>
         <rect
-          x="259.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="272.20"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-21: 0 contribution(s)</title>
         </rect>
         <rect
-          x="259.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="272.20"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-22: 0 contribution(s)</title>
         </rect>
         <rect
-          x="268.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="282.40"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-23: 0 contribution(s)</title>
         </rect>
         <rect
-          x="268.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="282.40"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-24: 0 contribution(s)</title>
         </rect>
         <rect
-          x="268.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="282.40"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-25: 0 contribution(s)</title>
         </rect>
         <rect
-          x="268.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="282.40"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-26: 0 contribution(s)</title>
         </rect>
         <rect
-          x="268.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="282.40"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-27: 0 contribution(s)</title>
         </rect>
         <rect
-          x="268.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="282.40"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-28: 0 contribution(s)</title>
         </rect>
         <rect
-          x="268.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="282.40"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-29: 0 contribution(s)</title>
         </rect>
         <rect
-          x="277.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="292.60"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-11-30: 0 contribution(s)</title>
         </rect>
         <rect
-          x="277.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="292.60"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-01: 0 contribution(s)</title>
         </rect>
         <rect
-          x="277.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="292.60"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-02: 0 contribution(s)</title>
         </rect>
         <rect
-          x="277.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="292.60"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-03: 0 contribution(s)</title>
         </rect>
         <rect
-          x="277.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="292.60"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-04: 0 contribution(s)</title>
         </rect>
         <rect
-          x="277.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="292.60"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-05: 0 contribution(s)</title>
         </rect>
         <rect
-          x="277.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="292.60"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-06: 0 contribution(s)</title>
         </rect>
         <rect
-          x="286.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="302.80"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-07: 0 contribution(s)</title>
         </rect>
         <rect
-          x="286.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="302.80"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-08: 0 contribution(s)</title>
         </rect>
         <rect
-          x="286.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="302.80"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-09: 0 contribution(s)</title>
         </rect>
         <rect
-          x="286.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="302.80"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-10: 0 contribution(s)</title>
         </rect>
         <rect
-          x="286.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="302.80"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-11: 0 contribution(s)</title>
         </rect>
         <rect
-          x="286.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="302.80"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-12: 0 contribution(s)</title>
         </rect>
         <rect
-          x="286.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="302.80"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-13: 0 contribution(s)</title>
         </rect>
         <rect
-          x="295.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="313.00"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-14: 0 contribution(s)</title>
         </rect>
         <rect
-          x="295.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="313.00"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-15: 0 contribution(s)</title>
         </rect>
         <rect
-          x="295.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="313.00"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-16: 0 contribution(s)</title>
         </rect>
         <rect
-          x="295.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="313.00"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-17: 0 contribution(s)</title>
         </rect>
         <rect
-          x="295.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="313.00"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-18: 0 contribution(s)</title>
         </rect>
         <rect
-          x="295.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="313.00"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-19: 0 contribution(s)</title>
         </rect>
         <rect
-          x="295.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="313.00"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-20: 0 contribution(s)</title>
         </rect>
         <rect
-          x="304.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="323.20"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-21: 0 contribution(s)</title>
         </rect>
         <rect
-          x="304.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="323.20"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-22: 0 contribution(s)</title>
         </rect>
         <rect
-          x="304.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="323.20"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-23: 0 contribution(s)</title>
         </rect>
         <rect
-          x="304.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="323.20"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-24: 0 contribution(s)</title>
         </rect>
         <rect
-          x="304.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="323.20"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-25: 0 contribution(s)</title>
         </rect>
         <rect
-          x="304.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="323.20"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-26: 0 contribution(s)</title>
         </rect>
         <rect
-          x="304.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="323.20"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-27: 0 contribution(s)</title>
         </rect>
         <rect
-          x="313.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="333.40"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-28: 0 contribution(s)</title>
         </rect>
         <rect
-          x="313.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="333.40"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-29: 0 contribution(s)</title>
         </rect>
         <rect
-          x="313.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="333.40"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-30: 0 contribution(s)</title>
         </rect>
         <rect
-          x="313.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="333.40"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2025-12-31: 0 contribution(s)</title>
         </rect>
         <rect
-          x="313.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="333.40"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-01: 0 contribution(s)</title>
         </rect>
         <rect
-          x="313.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="333.40"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-02: 0 contribution(s)</title>
         </rect>
         <rect
-          x="313.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="333.40"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-03: 0 contribution(s)</title>
         </rect>
         <rect
-          x="322.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="343.60"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-04: 0 contribution(s)</title>
         </rect>
         <rect
-          x="322.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="343.60"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-05: 0 contribution(s)</title>
         </rect>
         <rect
-          x="322.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="343.60"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-06: 0 contribution(s)</title>
         </rect>
         <rect
-          x="322.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="343.60"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-07: 0 contribution(s)</title>
         </rect>
         <rect
-          x="322.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="343.60"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-08: 0 contribution(s)</title>
         </rect>
         <rect
-          x="322.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="343.60"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-09: 0 contribution(s)</title>
         </rect>
         <rect
-          x="322.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="343.60"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-10: 0 contribution(s)</title>
         </rect>
         <rect
-          x="331.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="353.80"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-11: 0 contribution(s)</title>
         </rect>
         <rect
-          x="331.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="353.80"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-12: 0 contribution(s)</title>
         </rect>
         <rect
-          x="331.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="353.80"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-13: 0 contribution(s)</title>
         </rect>
         <rect
-          x="331.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="353.80"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-14: 0 contribution(s)</title>
         </rect>
         <rect
-          x="331.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="353.80"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-15: 0 contribution(s)</title>
         </rect>
         <rect
-          x="331.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="353.80"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-16: 0 contribution(s)</title>
         </rect>
         <rect
-          x="331.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="353.80"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-17: 0 contribution(s)</title>
         </rect>
         <rect
-          x="340.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="364.00"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-18: 0 contribution(s)</title>
         </rect>
         <rect
-          x="340.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="364.00"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-19: 0 contribution(s)</title>
         </rect>
         <rect
-          x="340.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="364.00"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-20: 0 contribution(s)</title>
         </rect>
         <rect
-          x="340.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="364.00"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-21: 0 contribution(s)</title>
         </rect>
         <rect
-          x="340.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="364.00"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-22: 0 contribution(s)</title>
         </rect>
         <rect
-          x="340.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="364.00"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-23: 0 contribution(s)</title>
         </rect>
         <rect
-          x="340.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="364.00"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-24: 0 contribution(s)</title>
         </rect>
         <rect
-          x="349.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="374.20"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-25: 0 contribution(s)</title>
         </rect>
         <rect
-          x="349.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="374.20"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-26: 0 contribution(s)</title>
         </rect>
         <rect
-          x="349.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="374.20"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-27: 0 contribution(s)</title>
         </rect>
         <rect
-          x="349.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="374.20"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-28: 0 contribution(s)</title>
         </rect>
         <rect
-          x="349.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="374.20"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-29: 0 contribution(s)</title>
         </rect>
         <rect
-          x="349.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="374.20"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-30: 0 contribution(s)</title>
         </rect>
         <rect
-          x="349.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="374.20"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-01-31: 0 contribution(s)</title>
         </rect>
         <rect
-          x="358.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="384.40"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-01: 0 contribution(s)</title>
         </rect>
         <rect
-          x="358.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="384.40"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-02: 0 contribution(s)</title>
         </rect>
         <rect
-          x="358.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="384.40"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-03: 0 contribution(s)</title>
         </rect>
         <rect
-          x="358.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="384.40"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-04: 0 contribution(s)</title>
         </rect>
         <rect
-          x="358.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="384.40"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-05: 0 contribution(s)</title>
         </rect>
         <rect
-          x="358.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="384.40"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-06: 0 contribution(s)</title>
         </rect>
         <rect
-          x="358.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="384.40"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-07: 0 contribution(s)</title>
         </rect>
         <rect
-          x="367.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="394.60"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-08: 0 contribution(s)</title>
         </rect>
         <rect
-          x="367.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="394.60"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-09: 0 contribution(s)</title>
         </rect>
         <rect
-          x="367.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="394.60"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-10: 0 contribution(s)</title>
         </rect>
         <rect
-          x="367.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="394.60"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-11: 0 contribution(s)</title>
         </rect>
         <rect
-          x="367.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="394.60"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-12: 0 contribution(s)</title>
         </rect>
         <rect
-          x="367.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="394.60"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-13: 0 contribution(s)</title>
         </rect>
         <rect
-          x="367.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="394.60"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-14: 0 contribution(s)</title>
         </rect>
         <rect
-          x="376.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="404.80"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-15: 0 contribution(s)</title>
         </rect>
         <rect
-          x="376.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="404.80"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-16: 0 contribution(s)</title>
         </rect>
         <rect
-          x="376.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="404.80"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-17: 0 contribution(s)</title>
         </rect>
         <rect
-          x="376.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="404.80"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-18: 0 contribution(s)</title>
         </rect>
         <rect
-          x="376.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="404.80"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-19: 0 contribution(s)</title>
         </rect>
         <rect
-          x="376.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="404.80"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-20: 0 contribution(s)</title>
         </rect>
         <rect
-          x="376.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="404.80"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-21: 0 contribution(s)</title>
         </rect>
         <rect
-          x="385.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="415.00"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-22: 0 contribution(s)</title>
         </rect>
         <rect
-          x="385.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="415.00"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-23: 0 contribution(s)</title>
         </rect>
         <rect
-          x="385.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="415.00"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-24: 0 contribution(s)</title>
         </rect>
         <rect
-          x="385.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="415.00"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-25: 0 contribution(s)</title>
         </rect>
         <rect
-          x="385.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="415.00"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-26: 0 contribution(s)</title>
         </rect>
         <rect
-          x="385.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="415.00"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-27: 0 contribution(s)</title>
         </rect>
         <rect
-          x="385.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="415.00"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-02-28: 0 contribution(s)</title>
         </rect>
         <rect
-          x="394.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="425.20"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-01: 0 contribution(s)</title>
         </rect>
         <rect
-          x="394.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="425.20"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-02: 0 contribution(s)</title>
         </rect>
         <rect
-          x="394.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="425.20"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-03: 0 contribution(s)</title>
         </rect>
         <rect
-          x="394.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="425.20"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-04: 0 contribution(s)</title>
         </rect>
         <rect
-          x="394.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="425.20"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-05: 0 contribution(s)</title>
         </rect>
         <rect
-          x="394.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="425.20"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-06: 0 contribution(s)</title>
         </rect>
         <rect
-          x="394.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="425.20"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-07: 0 contribution(s)</title>
         </rect>
         <rect
-          x="403.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="435.40"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-08: 0 contribution(s)</title>
         </rect>
         <rect
-          x="403.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="435.40"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-09: 0 contribution(s)</title>
         </rect>
         <rect
-          x="403.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="435.40"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-10: 0 contribution(s)</title>
         </rect>
         <rect
-          x="403.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="435.40"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-11: 0 contribution(s)</title>
         </rect>
         <rect
-          x="403.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="435.40"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-12: 0 contribution(s)</title>
         </rect>
         <rect
-          x="403.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="435.40"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-13: 0 contribution(s)</title>
         </rect>
         <rect
-          x="403.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="435.40"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-14: 0 contribution(s)</title>
         </rect>
         <rect
-          x="412.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="445.60"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-15: 0 contribution(s)</title>
         </rect>
         <rect
-          x="412.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="445.60"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-16: 0 contribution(s)</title>
         </rect>
         <rect
-          x="412.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="445.60"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-17: 0 contribution(s)</title>
         </rect>
         <rect
-          x="412.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="445.60"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-18: 0 contribution(s)</title>
         </rect>
         <rect
-          x="412.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="445.60"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-19: 0 contribution(s)</title>
         </rect>
         <rect
-          x="412.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="445.60"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-20: 0 contribution(s)</title>
         </rect>
         <rect
-          x="412.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="445.60"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-21: 0 contribution(s)</title>
         </rect>
         <rect
-          x="421.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="455.80"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-22: 0 contribution(s)</title>
         </rect>
         <rect
-          x="421.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="455.80"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-23: 0 contribution(s)</title>
         </rect>
         <rect
-          x="421.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="455.80"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-24: 0 contribution(s)</title>
         </rect>
         <rect
-          x="421.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="455.80"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-25: 0 contribution(s)</title>
         </rect>
         <rect
-          x="421.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="455.80"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-26: 0 contribution(s)</title>
         </rect>
         <rect
-          x="421.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="455.80"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-27: 0 contribution(s)</title>
         </rect>
         <rect
-          x="421.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="455.80"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-28: 0 contribution(s)</title>
         </rect>
         <rect
-          x="430.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="466.00"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-29: 0 contribution(s)</title>
         </rect>
         <rect
-          x="430.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="466.00"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-30: 0 contribution(s)</title>
         </rect>
         <rect
-          x="430.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="466.00"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-03-31: 0 contribution(s)</title>
         </rect>
         <rect
-          x="430.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="466.00"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-01: 0 contribution(s)</title>
         </rect>
         <rect
-          x="430.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="466.00"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-02: 0 contribution(s)</title>
         </rect>
         <rect
-          x="430.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="466.00"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-03: 0 contribution(s)</title>
         </rect>
         <rect
-          x="430.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="466.00"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-04: 0 contribution(s)</title>
         </rect>
         <rect
-          x="439.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="476.20"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-05: 0 contribution(s)</title>
         </rect>
         <rect
-          x="439.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="476.20"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-06: 0 contribution(s)</title>
         </rect>
         <rect
-          x="439.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="476.20"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-07: 0 contribution(s)</title>
         </rect>
         <rect
-          x="439.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="476.20"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-08: 0 contribution(s)</title>
         </rect>
         <rect
-          x="439.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="476.20"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-09: 0 contribution(s)</title>
         </rect>
         <rect
-          x="439.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="476.20"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-10: 0 contribution(s)</title>
         </rect>
         <rect
-          x="439.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="476.20"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-11: 0 contribution(s)</title>
         </rect>
         <rect
-          x="448.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="486.40"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-12: 0 contribution(s)</title>
         </rect>
         <rect
-          x="448.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="486.40"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-13: 0 contribution(s)</title>
         </rect>
         <rect
-          x="448.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="486.40"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-14: 0 contribution(s)</title>
         </rect>
         <rect
-          x="448.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="486.40"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-15: 0 contribution(s)</title>
         </rect>
         <rect
-          x="448.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="486.40"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-16: 0 contribution(s)</title>
         </rect>
         <rect
-          x="448.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="486.40"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-17: 0 contribution(s)</title>
         </rect>
         <rect
-          x="448.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="486.40"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-18: 0 contribution(s)</title>
         </rect>
         <rect
-          x="457.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="496.60"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-19: 0 contribution(s)</title>
         </rect>
         <rect
-          x="457.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="496.60"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-20: 0 contribution(s)</title>
         </rect>
         <rect
-          x="457.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="496.60"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-21: 0 contribution(s)</title>
         </rect>
         <rect
-          x="457.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="496.60"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-22: 0 contribution(s)</title>
         </rect>
         <rect
-          x="457.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="496.60"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-23: 0 contribution(s)</title>
         </rect>
         <rect
-          x="457.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="496.60"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-24: 0 contribution(s)</title>
         </rect>
         <rect
-          x="457.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="496.60"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-25: 0 contribution(s)</title>
         </rect>
         <rect
-          x="466.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="506.80"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-26: 0 contribution(s)</title>
         </rect>
         <rect
-          x="466.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="506.80"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-27: 0 contribution(s)</title>
         </rect>
         <rect
-          x="466.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="506.80"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-28: 0 contribution(s)</title>
         </rect>
         <rect
-          x="466.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="506.80"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-29: 0 contribution(s)</title>
         </rect>
         <rect
-          x="466.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="506.80"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-04-30: 0 contribution(s)</title>
         </rect>
         <rect
-          x="466.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="506.80"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-01: 0 contribution(s)</title>
         </rect>
         <rect
-          x="466.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="506.80"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-02: 0 contribution(s)</title>
         </rect>
         <rect
-          x="475.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="517.00"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-03: 0 contribution(s)</title>
         </rect>
         <rect
-          x="475.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="517.00"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-04: 0 contribution(s)</title>
         </rect>
         <rect
-          x="475.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="517.00"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#2f6b35"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#245f2a"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-05-05: 17 contribution(s)</title>
         </rect>
         <rect
-          x="475.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="517.00"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-05-06: 12 contribution(s)</title>
         </rect>
         <rect
-          x="475.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="517.00"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-07: 0 contribution(s)</title>
         </rect>
         <rect
-          x="475.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="517.00"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-08: 0 contribution(s)</title>
         </rect>
         <rect
-          x="475.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="517.00"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-09: 0 contribution(s)</title>
         </rect>
         <rect
-          x="484.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="527.20"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-10: 0 contribution(s)</title>
         </rect>
         <rect
-          x="484.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="527.20"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-11: 0 contribution(s)</title>
         </rect>
         <rect
-          x="484.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="527.20"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-05-12: 9 contribution(s)</title>
         </rect>
         <rect
-          x="484.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="527.20"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-13: 0 contribution(s)</title>
         </rect>
         <rect
-          x="484.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="527.20"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-05-14: 1 contribution(s)</title>
         </rect>
         <rect
-          x="484.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="527.20"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-05-15: 4 contribution(s)</title>
         </rect>
         <rect
-          x="484.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="527.20"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-16: 0 contribution(s)</title>
         </rect>
         <rect
-          x="493.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="537.40"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-17: 0 contribution(s)</title>
         </rect>
         <rect
-          x="493.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="537.40"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-18: 0 contribution(s)</title>
         </rect>
         <rect
-          x="493.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="537.40"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-05-19: 1 contribution(s)</title>
         </rect>
         <rect
-          x="493.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="537.40"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-20: 0 contribution(s)</title>
         </rect>
         <rect
-          x="493.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="537.40"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-21: 0 contribution(s)</title>
         </rect>
         <rect
-          x="493.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="537.40"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-22: 0 contribution(s)</title>
         </rect>
         <rect
-          x="493.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="537.40"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-23: 0 contribution(s)</title>
         </rect>
         <rect
-          x="502.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="547.60"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-24: 0 contribution(s)</title>
         </rect>
         <rect
-          x="502.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="547.60"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-25: 0 contribution(s)</title>
         </rect>
         <rect
-          x="502.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="547.60"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-05-26: 2 contribution(s)</title>
         </rect>
         <rect
-          x="502.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="547.60"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#2f6b35"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#245f2a"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-05-27: 18 contribution(s)</title>
         </rect>
         <rect
-          x="502.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="547.60"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-05-28: 3 contribution(s)</title>
         </rect>
         <rect
-          x="502.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="547.60"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-29: 0 contribution(s)</title>
         </rect>
         <rect
-          x="502.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="547.60"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-05-30: 0 contribution(s)</title>
         </rect>
         <rect
-          x="511.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="557.80"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-05-31: 7 contribution(s)</title>
         </rect>
         <rect
-          x="511.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="557.80"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-06-01: 10 contribution(s)</title>
         </rect>
         <rect
-          x="511.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="557.80"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-06-02: 8 contribution(s)</title>
         </rect>
         <rect
-          x="511.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="557.80"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-06-03: 1 contribution(s)</title>
         </rect>
         <rect
-          x="511.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="557.80"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-06-04: 0 contribution(s)</title>
         </rect>
         <rect
-          x="511.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="557.80"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-06-05: 0 contribution(s)</title>
         </rect>
         <rect
-          x="511.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="557.80"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-06-06: 0 contribution(s)</title>
         </rect>
         <rect
-          x="520.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="568.00"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-06-07: 0 contribution(s)</title>
         </rect>
         <rect
-          x="520.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="568.00"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-06-08: 3 contribution(s)</title>
         </rect>
         <rect
-          x="520.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="568.00"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-06-09: 0 contribution(s)</title>
         </rect>
         <rect
-          x="520.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="568.00"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-06-10: 3 contribution(s)</title>
         </rect>
         <rect
-          x="520.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="568.00"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-06-11: 0 contribution(s)</title>
         </rect>
         <rect
-          x="520.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="568.00"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-06-12: 0 contribution(s)</title>
         </rect>
         <rect
-          x="520.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="568.00"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-06-13: 0 contribution(s)</title>
         </rect>
         <rect
-          x="529.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="578.20"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-06-14: 0 contribution(s)</title>
         </rect>
         <rect
-          x="529.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="578.20"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-06-15: 10 contribution(s)</title>
         </rect>
         <rect
-          x="529.00"
-          y="188.00"
-          width="7"
-          height="7"
+          x="578.20"
+          y="128.40"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#2f6b35"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#245f2a"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-06-16: 18 contribution(s)</title>
         </rect>
         <rect
-          x="529.00"
-          y="197.00"
-          width="7"
-          height="7"
+          x="578.20"
+          y="138.60"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#2f6b35"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#245f2a"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-06-17: 16 contribution(s)</title>
         </rect>
         <rect
-          x="529.00"
-          y="206.00"
-          width="7"
-          height="7"
+          x="578.20"
+          y="148.80"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#0b1d12"
-          stroke="#b8ff6a"
-          stroke-opacity="0.06"
+          fill="#061108"
+          stroke="#8fdc73"
+          stroke-opacity="0.07"
         >
           <title>2026-06-18: 0 contribution(s)</title>
         </rect>
         <rect
-          x="529.00"
-          y="215.00"
-          width="7"
-          height="7"
+          x="578.20"
+          y="159.00"
+          width="8"
+          height="8"
           rx="1.2"
           fill="#b8ff6a"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-06-19: 56 contribution(s)</title>
         </rect>
         <rect
-          x="529.00"
-          y="224.00"
-          width="7"
-          height="7"
+          x="578.20"
+          y="169.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#2f6b35"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#245f2a"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-06-20: 28 contribution(s)</title>
         </rect>
         <rect
-          x="538.00"
-          y="170.00"
-          width="7"
-          height="7"
+          x="588.40"
+          y="108.00"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#1d3b21"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#17341b"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
           <title>2026-06-21: 5 contribution(s)</title>
         </rect>
         <rect
-          x="538.00"
-          y="179.00"
-          width="7"
-          height="7"
+          x="588.40"
+          y="118.20"
+          width="8"
+          height="8"
           rx="1.2"
-          fill="#2f6b35"
-          stroke="#b8ff6a"
-          stroke-opacity="0.18"
+          fill="#48a13e"
+          stroke="#8fdc73"
+          stroke-opacity="0.2"
         >
-          <title>2026-06-22: 28 contribution(s)</title>
+          <title>2026-06-22: 35 contribution(s)</title>
         </rect>
     </g>
 
-      <text x="70" y="274" class="small-label">LESS</text>
-      <rect x="104" y="267" width="9" height="9" rx="1.5" fill="#0b1d12" stroke="#b8ff6a" stroke-opacity="0.12"/>
-      <rect x="119" y="267" width="9" height="9" rx="1.5" fill="#1d3b21"/>
-      <rect x="134" y="267" width="9" height="9" rx="1.5" fill="#2f6b35"/>
-      <rect x="149" y="267" width="9" height="9" rx="1.5" fill="#59a84a"/>
-      <rect x="164" y="267" width="9" height="9" rx="1.5" fill="#b8ff6a"/>
-      <text x="185" y="274" class="small-label">MORE</text>
-
-      <rect x="598" y="92" width="238" height="62" rx="8" class="panel-box"/>
-      <text x="614" y="116" class="small-label">TOTAL CONTRIBUTIONS</text>
-      <text x="614" y="146" class="big-number">260</text>
-
-      <text x="614" y="354" class="small-label">LANGUAGE MODULES DETECTED</text>
-      <line x1="614" y1="365" x2="828" y2="365" class="panel-line"/>
-
-      
-    <g class="language-card">
-      <rect x="614" y="170" width="118" height="38" rx="6"/>
-      
-      <g transform="translate(627 178)">
-        <path d="M4 2 H17 Q21 2 21 6 V12 H10 Q6 12 6 16 V19 H3 Q0 19 0 15 V9 Q0 6 4 6 H13 V4 H4 Z" fill="#b8ff6a" opacity="0.85"/>
-        <circle cx="6" cy="5" r="1.3" fill="#07120b"/>
-        <path d="M8 14 H19 Q23 14 23 18 V24 Q23 27 19 27 H10 V25 H19 V23 H6 Q2 23 2 19 V14 Z" fill="#6cff5d" opacity="0.65"/>
-        <circle cx="17" cy="24" r="1.3" fill="#07120b"/>
-      </g>
-      <text x="659" y="194" class="language-text">Python</text>
-    </g>
-    <g class="language-card">
-      <rect x="742" y="170" width="118" height="38" rx="6"/>
-      
-      <g transform="translate(754 177)">
-        <rect x="0" y="0" width="24" height="24" rx="3" fill="#b8ff6a" opacity="0.85"/>
-        <text x="12" y="17" text-anchor="middle" class="icon-dark">JS</text>
-      </g>
-      <text x="787" y="194" class="language-text">JavaScript</text>
-    </g>
-    <g class="language-card">
-      <rect x="614" y="218" width="118" height="38" rx="6"/>
-      
-      <g transform="translate(627 224)">
-        <path d="M8 2 C15 7 1 10 10 14" fill="none" stroke="#b8ff6a" stroke-width="2" stroke-linecap="round"/>
-        <path d="M14 1 C21 7 7 10 16 14" fill="none" stroke="#6cff5d" stroke-width="1.6" stroke-linecap="round"/>
-        <path d="M3 16 H22 L20 25 H5 Z" fill="none" stroke="#b8ff6a" stroke-width="2"/>
-        <path d="M22 18 Q27 18 25 22 Q24 25 20 24" fill="none" stroke="#b8ff6a" stroke-width="2"/>
-      </g>
-      <text x="659" y="242" class="language-text">Java</text>
-    </g>
-    <g class="language-card">
-      <rect x="742" y="218" width="118" height="38" rx="6"/>
-      
-      <g transform="translate(754 225)">
-        <circle cx="12" cy="12" r="11" fill="none" stroke="#b8ff6a" stroke-width="2"/>
-        <circle cx="12" cy="12" r="6" fill="#b8ff6a" opacity="0.25"/>
-        <text x="12" y="16" text-anchor="middle" class="icon-green">RS</text>
-      </g>
-      <text x="787" y="242" class="language-text">Rust</text>
-    </g>
-    <g class="language-card">
-      <rect x="614" y="266" width="118" height="38" rx="6"/>
-      
-      <g transform="translate(627 273)">
-        <ellipse cx="12" cy="5" rx="11" ry="4" fill="none" stroke="#b8ff6a" stroke-width="2"/>
-        <path d="M1 5 V19 C1 22 23 22 23 19 V5" fill="none" stroke="#b8ff6a" stroke-width="2"/>
-        <ellipse cx="12" cy="19" rx="11" ry="4" fill="none" stroke="#6cff5d" stroke-width="1.5"/>
-      </g>
-      <text x="659" y="290" class="language-text">SQL</text>
-    </g>
-    <g class="language-card">
-      <rect x="742" y="266" width="118" height="38" rx="6"/>
-      
-      <g transform="translate(754 272)">
-        <path d="M3 1 H25 L22 25 L14 28 L6 25 Z" fill="#b8ff6a" opacity="0.25" stroke="#b8ff6a" stroke-width="2"/>
-        <text x="14" y="18" text-anchor="middle" class="icon-green">&lt;/&gt;</text>
-      </g>
-      <text x="787" y="290" class="language-text">HTML</text>
-    </g>
-
-      <rect x="614" y="382" width="222" height="48" rx="8" class="panel-box"/>
-      <text x="630" y="403" class="small-label">STATUS: ONLINE</text>
-      <text x="630" y="421" class="small-label">BUILD: 2026-06-22</text>
-
-      <text x="64" y="428" class="small-label">SYSTEM MESSAGE:</text>
-      <text x="64" y="446" class="terminal-text" font-size="13">
-        &gt; Contribution field stabilized. Retro phosphor render complete.
-      </text>
-    </g>
-
-    <circle cx="58" cy="35" r="5" fill="#b8ff6a" opacity="0.75"/>
-    <circle cx="76" cy="35" r="5" fill="#d7c06a" opacity="0.7"/>
-    <circle cx="94" cy="35" r="5" fill="#8b4d2a" opacity="0.7"/>
-
-    <text x="122" y="40" class="frame-title">RETRO CONTRIBUTION TERMINAL</text>
+    <text x="58" y="197" class="legend">LESS</text>
+    <rect x="96" y="190" width="8" height="8" rx="1.2" fill="#061108" stroke="#8fdc73" stroke-opacity="0.12"/>
+    <rect x="112" y="190" width="8" height="8" rx="1.2" fill="#17341b"/>
+    <rect x="128" y="190" width="8" height="8" rx="1.2" fill="#245f2a"/>
+    <rect x="144" y="190" width="8" height="8" rx="1.2" fill="#48a13e"/>
+    <rect x="160" y="190" width="8" height="8" rx="1.2" fill="#b8ff6a"/>
+    <text x="180" y="197" class="legend">MORE</text>
   </g>
 </svg>
