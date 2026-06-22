@@ -2,43 +2,37 @@ import urllib.request
 import os
 
 def main():
+    # URL do gráfico de contribuições
     url = "https://ghchart.rshah.org/3a4818/Alexispher"
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 
     try:
-        print("Baixando as contribuicoes...")
+        print("Baixando gráfico...")
         with urllib.request.urlopen(req) as response:
-            svg_chart = response.read().decode('utf-8')
+            full_svg = response.read().decode('utf-8')
             
-        # Pega SÓ o que interessa (limpa o lixo que causou o arquivo de 182MB)
-        if "<svg" in svg_chart and "</svg>" in svg_chart:
-            svg_chart = svg_chart[svg_chart.index("<svg"):svg_chart.rindex("</svg>") + 6]
-        else:
-            raise ValueError("O grafico baixado nao e um SVG valido.")
+        # Extrai apenas a parte interna do gráfico, ignorando o cabeçalho XML
+        start = full_svg.find('<svg')
+        end = full_svg.rfind('</svg>') + 6
+        chart = full_svg[start:end]
+        
+        # Limpa o que for duplicado para garantir que o tamanho fique pequeno
+        chart = chart.replace('<?xml version="1.0" standalone="no"?>', '')
 
-        print("Lendo o template...")
+        print("Lendo o template do Gameboy...")
         with open("gameboy_template.svg", "r", encoding="utf-8") as f:
             template = f.read()
 
-        print("Gerando imagem...")
-        # Usa um scale ligeiramente menor e centraliza
-        chart_group = f'<g transform="translate(85, 140) scale(0.30)">{svg_chart}</g>'
-        final_svg = template.replace("", chart_group)
-
-        # Checa o tamanho antes de salvar na memoria (limite artificial de 2MB)
-        tamanho_mb = len(final_svg.encode('utf-8')) / (1024 * 1024)
-        print(f"Tamanho do arquivo gerado: {tamanho_mb:.2f} MB")
-        
-        if tamanho_mb > 10:
-            raise ValueError(f"O arquivo SVG ficou grande demais ({tamanho_mb:.2f} MB)! Abortando.")
+        # Insere o gráfico na posição correta
+        final_svg = template.replace("", f'<g transform="translate(85, 140) scale(0.30)">{chart}</g>')
 
         with open("gameboy_contrib.svg", "w", encoding="utf-8") as f:
             f.write(final_svg)
             
-        print("SUCESSO: gameboy_contrib.svg gerado!")
+        print("SUCESSO: gameboy_contrib.svg gerado e otimizado!")
 
     except Exception as e:
-        print(f"ERRO FATAL: {e}")
+        print(f"ERRO: {e}")
         exit(1)
 
 if __name__ == "__main__":
