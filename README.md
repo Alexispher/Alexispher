@@ -5,5 +5,5 @@
 <br>
 
 <div align="center">
-  <img src="./gameboy_template.svg" alt="Retro GitHub Contributions Game Boy" width="430" />
+  <img src="./fallout_contributions.svg" alt="Retro Fallout Style GitHub Contributions" width="900" />
 </div>
